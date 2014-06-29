@@ -1,0 +1,30 @@
+{
+  "name": "afvolley",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rkleinkromhof/afvolley",
+  "authors": [
+    "Robert Klein Kromhof <rkleinkromhof@gmail.com>"
+  ],
+  "description": "Footvolleyball team registration application (AngularFire)",
+  "main": "index.html",
+  "keywords": [
+    "volley",
+    "angularjs",
+    "firebase",
+    "angularfire",
+    "js"
+  ],
+  "license": "GPL v3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "angularjs": "*"
+  }
+}
