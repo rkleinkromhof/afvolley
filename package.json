@@ -1,6 +1,7 @@
 {
   "name": "afvolley",
   "version": "1.0.0-initial",
+  "private": true,
   "description": "Footvolleyball team registration application (AngularFire)",
   "main": "index.html",
   "scripts": {
