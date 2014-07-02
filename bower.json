@@ -18,13 +18,12 @@
   "private": true,
   "ignore": [
     "**/.*",
+    "app/bower_components",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "test"
   ],
   "dependencies": {
-    "angular": "1.2.x",
-    "angular-ui-bootstrap": "~0.11.0"
+    "angularfire": "~0.7.1",
+    "bootstrap": "~3.2.0"
   }
 }
