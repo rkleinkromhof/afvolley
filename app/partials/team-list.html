@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      Search: <input ng-model="search">
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Team</th>
+        <th>Contactpersoon</th>
+        <th>Aangemeld op</th>
+        <th>Aantal spelers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="reg in registrations | orderByPriority | filter:search">
+        <td>{{reg.teamname}}</td>
+        <td>{{reg.contact.firstname}}</td>
+        <td>{{reg.registered_on | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+        <td>{{reg.players.length}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

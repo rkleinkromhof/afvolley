@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "angularfire": "~0.7.1",
+    "angular-route": "~1.2.x",
     "bootstrap": "~3.2.0"
   }
 }

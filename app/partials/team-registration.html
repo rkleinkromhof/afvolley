@@ -1,0 +1,96 @@
+<div class="container-fluid">
+  <div class="row row-header">
+    <div class="col-md-6"><h1>Aanmelden Voetvolleybal 2015</h1></div>
+  </div>
+  <form role="form" class="form-horizontal registration-form">
+    <div class="form-group">
+      <label for="teamname" class="col-md-1 control-label">Team</label>
+      <div class="col-md-5">
+        <input type="text" class="form-control" id="teamname" ng-model="registration.teamname" placeholder="Teamnaam" autofocus />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-1 control-label">Spelers</label>
+    </div>
+    <div class="form-group" ng-repeat="player in registration.players">
+      <label for="player-{{ $index }}-name" class="col-md-1 control-label">{{ $index<3 ? "*" : ""}}{{ $index+1 }}</label>
+      <label class="sr-only" for="player-{{ $index }}-name">Naam</label>
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="player-{{ $index }}-name" ng-model="player.name" placeholder="Naam" />
+      </div>
+      <label class="sr-only" for="player-{{ $index }}-city">Woonplaats</label>
+      <div class="col-md-2">
+        <input type="text" class="form-control" id="player-{{ $index }}-city" ng-model="player.city" placeholder="Woonplaats" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-1 control-label">Contactpersoon</label>
+    </div>
+    <div class="form-group">
+      <label for="contact-firstname" class="col-md-1 control-label">Voornaam</label>
+      <div class="col-md-5">
+        <input type="text" class="form-control" id="contact-firstname" ng-model="registration.contact.firstname" placeholder="Voornaam" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="contact-lastname" class="col-md-1 control-label">Achternaam</label>
+      <div class="col-md-5">
+        <input type="text" class="form-control" id="contact-lastname" ng-model="registration.contact.lastname" placeholder="Achternaam" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="contact-phone" class="col-md-1 control-label">Tel. nr.</label>
+      <div class="col-md-5">
+        <input type="tel" class="form-control" id="contact-phone" ng-model="registration.contact.phone" placeholder="Telefoonnummer" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="contact-email" class="col-md-1 control-label">E-mail</label>
+      <div class="col-md-5">
+        <input type="email" class="form-control" id="contact-email" ng-model="registration.contact.email" placeholder="E-mail">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="contact-street" class="col-md-1 control-label">Adres</label>
+      <div class="col-md-5">
+        <input type="text" class="form-control" id="contact-street" ng-model="registration.contact.street" placeholder="Adres" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="contact-postalcode" class="col-md-1 control-label">Postcode</label>
+      <div class="col-md-5">
+        <input type="text" class="form-control" id="contact-postalcode" ng-model="registration.contact.postalcode" placeholder="Postcode" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="contact-city" class="col-md-1 control-label">Woonplaats</label>
+      <div class="col-md-5">
+        <input type="text" class="form-control" id="contact-city" ng-model="registration.contact.city" placeholder="Woonplaats
+" />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label class="col-md-offset-1 col-md-5">
+          <input type="checkbox" value="">
+          Ik geef hierbij aan dat ik 18 jaar of ouder ben, en alle opgegeven speler 16 jaar of ouder zijn.
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label class="col-md-offset-1 col-md-5">
+          <input type="checkbox" value="">
+          Ik ga akkoord met de voorwaarden en het regelement zoals beschreven in de inschrijfprocedure.
+          Deze is <a href="#">hier</a> te lezen.
+        </label>
+      </div>
+    </div>
+    <div class="form-group hightlight">
+      <div class="col-md-offset-1 col-md-5">
+        <button type="submit" class="btn btn-primary" ng-click="register(registration)">Aanmelden</button>
+        <button type="reset" class="btn btn-default">Maak leeg</button>
+      </div>
+    </div>
+  </form>
+</div>
