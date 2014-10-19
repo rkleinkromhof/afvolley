@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="reg in registrations | orderByPriority | filter:search">
-        <td>{{reg.teamname}}</td>
+        <td><a href="#/teams/{{reg.$id}}">{{reg.teamname}}</a></td>
         <td>{{reg.contact.firstname}} {{reg.contact.lastname}}</td>
         <!-- TODO make column values clickable and switch between fixed and relative values? -->
         <td>{{reg.registered_on | date:'dd-MM-yyyy HH:mm:ss'}} ({{ reg.registered_on | relativeDate }})</td>
