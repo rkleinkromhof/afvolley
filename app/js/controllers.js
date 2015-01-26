@@ -4,25 +4,37 @@ var afvolleyControllers = angular.module('afvolleyControllers', []);
 
 afvolleyControllers.controller('TeamListCtrl', ['$scope', '$firebase', 
   function($scope, $firebase) {
-    var fbase = new Firebase('https://afvolley.firebaseio.com/registration');
-    $scope.registrations = $firebase(fbase);
+    var fbase = new Firebase('https://afvolley.firebaseio.com/toernooien/2015/teams');
+
+    $scope.teams = $firebase(fbase);
   }
 ]);
 
-afvolleyControllers.controller('TeamRegistrationCtrl', ['$scope', '$firebase', 
+afvolleyControllers.controller('TeamSignupCtrl', ['$scope', '$firebase', 
   function($scope, $firebase) {
-    var fbase = new Firebase('https://afvolley.firebaseio.com/registration');
-    $scope.registrations = $firebase(fbase);
-    $scope.registration = {
+    var fbase = new Firebase('https://afvolley.firebaseio.com/toernooien/2015/teams');
+    var teams = $scope.teams = $firebase(fbase);
+    var team = $scope.team = {
       contact: {},
-      players: [{},{},{},{},{},{}]
+      players: {
+        1: {},
+        2: {},
+        3: {},
+        4: {},
+        5: {},
+        6: {}
+      }
     }
 
-    $scope.register = function(registration) {
-      if (registration.teamname) {
-        registration.registered_on = Date.now();
-        $scope.registrations.$add(registration);
-        // TODO show 'thank you ...' message and redirect to ...?
+    $scope.signup = function(team) {
+      if (team.name) {
+        team.signup = Date.now();
+        teams.$push(team).then(function(ref) {
+          console.log('Success: ', ref.key());
+          // TODO show 'thank you ...' message and redirect to ...?
+        }, function(error) {
+          console.log("Error: ", error);
+        });
       }
     };
   }
