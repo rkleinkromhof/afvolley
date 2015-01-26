@@ -1,6 +1,7 @@
 'use strict';
 
 var afvolleyControllers = angular.module('afvolleyControllers', []);
+var fbase = new Firebase('https://afvolley.firebaseio.com/registration');
 
 afvolleyControllers.controller('TeamListCtrl', ['$scope', '$firebase', 
   function($scope, $firebase) {
@@ -37,5 +38,16 @@ afvolleyControllers.controller('TeamSignupCtrl', ['$scope', '$firebase',
         });
       }
     };
+  }
+]);
+
+afvolleyControllers.controller('TeamDetailCtrl', ['$scope', '$routeParams', '$firebase', 
+  function($scope, $routeParams, $firebase) {
+    var teamRef = fbase.child($routeParams.teamId);
+    $scope.team = $firebase(teamRef);
+
+    $scope.ok = function() {
+
+    }
   }
 ]);

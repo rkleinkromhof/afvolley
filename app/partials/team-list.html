@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="team in teams | orderByPriority | filter:search">
-        <td>{{team.name}}</td>
+        <td><a href="#/teams/{{reg.$id}}">{{team.name}}</a></td>
         <td>{{team.contact.firstname}} {{team.contact.lastname}}</td>
         <!-- TODO make column values clickable and switch between fixed and relative values? -->
         <td>{{team.signup | date:'dd-MM-yyyy HH:mm:ss'}} ({{ team.signup | relativeDate }})</td>

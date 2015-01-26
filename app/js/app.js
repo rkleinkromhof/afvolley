@@ -2,9 +2,9 @@
 
 var afvolleyApp = angular.module("afvolleyApp", [
   'afvolleyControllers',
+  'relativeDate',
   'firebase',
-  'ngRoute',
-  'relativeDate'
+  'ngRoute'
   ]);
 
 afvolleyApp.config(['$routeProvider',
@@ -14,10 +14,10 @@ afvolleyApp.config(['$routeProvider',
         templateUrl: 'partials/team-list.html',
         controller: 'TeamListCtrl'
       }).
-      /*when('/teams/:teamId', {
+      when('/teams/:teamId', {
         templateUrl: 'partials/team-detail.html',
         controller: 'TeamDetailCtrl'
-      }).*/
+      }).
       when('/aanmelden', {
         templateUrl: 'partials/team-signup.html',
         controller: 'TeamSignupCtrl'
