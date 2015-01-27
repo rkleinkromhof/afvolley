@@ -1,13 +1,13 @@
 'use strict';
 
 var afvolleyControllers = angular.module('afvolleyControllers', []);
-var fbase = new Firebase('https://afvolley.firebaseio.com/registration');
 
 afvolleyControllers.controller('TeamListCtrl', ['$scope', '$firebase', 
   function($scope, $firebase) {
-    var fbase = new Firebase('https://afvolley.firebaseio.com/toernooien/2015/teams');
+    var ref = new Firebase('https://afvolley.firebaseio.com/toernooien/2015/teams');
+    var sync = $firebase(ref);
 
-    $scope.teams = $firebase(fbase);
+     $scope.teams = sync.$asArray();
   }
 ]);
 
@@ -18,12 +18,12 @@ afvolleyControllers.controller('TeamSignupCtrl', ['$scope', '$firebase',
     var team = $scope.team = {
       contact: {},
       players: {
+        0: {},
         1: {},
         2: {},
         3: {},
         4: {},
-        5: {},
-        6: {}
+        5: {}
       }
     }
 
@@ -43,8 +43,10 @@ afvolleyControllers.controller('TeamSignupCtrl', ['$scope', '$firebase',
 
 afvolleyControllers.controller('TeamDetailCtrl', ['$scope', '$routeParams', '$firebase', 
   function($scope, $routeParams, $firebase) {
+    var fbase = new Firebase('https://afvolley.firebaseio.com/toernooien/2015/teams');
     var teamRef = fbase.child($routeParams.teamId);
-    $scope.team = $firebase(teamRef);
+    var sync = $firebase(teamRef);
+    $scope.team = sync.$asObject();
 
     $scope.ok = function() {
 

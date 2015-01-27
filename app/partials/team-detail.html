@@ -6,14 +6,14 @@
     <div class="form-group">
       <label class="col-md-1 control-label">Team</label>
       <div class="col-md-5">
-        <p class="form-control-static">{{team.teamname}}</p>
+        <p class="form-control-static">{{team.name}}</p>
       </div>
     </div>
     <div class="form-group">
       <label class="col-md-1 control-label">Spelers</label>
     </div>
     <div class="form-group" ng-repeat="player in team.players">
-      <label class="col-md-1 control-label">{{ $index+1 }}</label>
+      <label class="col-md-1 control-label">{{ $index }}</label>
       <label class="sr-only">Naam</label>
       <div class="col-md-3">
         <p class="form-control-static">{{player.name}}</p>

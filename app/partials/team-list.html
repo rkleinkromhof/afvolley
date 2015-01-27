@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
-      Search: <input ng-model="search">
+      Search: <input type="search" class="form-control" ng-model="q" placeholder="filter teams..." autofocus>
     </div>
   </div>
   <table class="table">
@@ -9,18 +9,30 @@
       <tr>
         <th>Team</th>
         <th>Contactpersoon</th>
-        <th>Aangemeld op</th>
-        <th>Aantal spelers</th>
+        <th>Aangemeld</th>
+        <th>Spelers</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="team in teams | orderByPriority | filter:search">
-        <td><a href="#/teams/{{reg.$id}}">{{team.name}}</a></td>
+      <tr ng-repeat="(key, team) in teams | orderBy : signup : true | filter:q">
+        <td><a href="#/teams/{{key}}">{{team.name}}</a></td>
         <td>{{team.contact.firstname}} {{team.contact.lastname}}</td>
         <!-- TODO make column values clickable and switch between fixed and relative values? -->
         <td>{{team.signup | date:'dd-MM-yyyy HH:mm:ss'}} ({{ team.signup | relativeDate }})</td>
         <td>{{team.players.length}}</td>
       </tr>
     </tbody>
+    <tfoot>
+      <tr ng-if="results.length == 0">
+        <td colspan="4">
+          <strong>Geen resultaten gevonden...</strong>
+        </td>
+      </tr>
+      <tr ng-if="results.length > 0">
+        <td colspan="4">
+          <strong>{{results.length}} resultaten gevonden</strong>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 </div>
