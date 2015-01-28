@@ -1,79 +1,77 @@
-<div class="container-fluid">
-  <div class="row row-header">
-    <div class="col-md-6"><h1>Details: {{team.name}}</h1></div>
-  </div>
-  <form role="form" class="form-horizontal">
-    <div class="form-group">
-      <label class="col-md-1 control-label">Team</label>
-      <div class="col-md-5">
-        <p class="form-control-static">{{team.name}}</p>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-1 control-label">Spelers</label>
-    </div>
-    <div class="form-group" ng-repeat="player in team.players">
-      <label class="col-md-1 control-label">{{ $index }}</label>
-      <label class="sr-only">Naam</label>
-      <div class="col-md-3">
-        <p class="form-control-static">{{player.name}}</p>
-      </div>
-      <label class="sr-only">Woonplaats</label>
-      <div class="col-md-2">
-        <p class="form-control-static">{{player.city}}</p>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-1 control-label">Contactpersoon</label>
-    </div>
-    <div class="form-group">
-      <label class="col-md-1 control-label">Voornaam</label>
-      <div class="col-md-5">
-        <p class="form-control-static">{{team.contact.firstname}}</p>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-1 control-label">Achternaam</label>
-      <div class="col-md-5">
-        <p class="form-control-static">{{team.contact.lastname}}</p>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-1 control-label">Tel. nr.</label>
-      <div class="col-md-5">
-        <p class="form-control-static">{{team.contact.phone}}</p>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-1 control-label">E-mail</label>
-      <div class="col-md-5">
-        <p class="form-control-static">{{team.contact.email}}</p>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-1 control-label">Adres</label>
-      <div class="col-md-5">
-        <p class="form-control-static">{{team.contact.street}}</p>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-1 control-label">Postcode</label>
-      <div class="col-md-5">
-        <p class="form-control-static">{{team.contact.postalcode}}</p>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-1 control-label">Woonplaats</label>
-      <div class="col-md-5">
-        <p class="form-control-static">{{team.contact.city}}</p>
-      </div>
-    </div>
-    <div class="form-group hightlight">
-      <div class="col-md-offset-1 col-md-5">
-        <button type="submit" class="btn btn-primary" ng-click="ok()">OK</button>
-        <!-- <button type="submit" class="btn btn-primary" ng-click="save(team)">Opslaan</button> -->
-        <!-- <button type="submit" class="btn btn-default" ng-click="cancel()">Annuleren</button> -->
-      </div>
-    </div>
-  </form>
+<div class="row row-header">
+  <div class="col-md-6"><h1>Details: {{team.name}}</h1></div>
 </div>
+<form role="form" class="form-horizontal">
+  <div class="form-group">
+    <label class="col-md-1 control-label">Team</label>
+    <div class="col-md-5">
+      <p class="form-control-static">{{team.name}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-1 control-label">Spelers</label>
+  </div>
+  <div class="form-group" ng-repeat="player in team.players">
+    <label class="col-md-1 control-label">{{ $index }}</label>
+    <label class="sr-only">Naam</label>
+    <div class="col-md-3">
+      <p class="form-control-static">{{player.name}}</p>
+    </div>
+    <label class="sr-only">Woonplaats</label>
+    <div class="col-md-2">
+      <p class="form-control-static">{{player.city}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-1 control-label">Contactpersoon</label>
+  </div>
+  <div class="form-group">
+    <label class="col-md-1 control-label">Voornaam</label>
+    <div class="col-md-5">
+      <p class="form-control-static">{{team.contact.firstname}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-1 control-label">Achternaam</label>
+    <div class="col-md-5">
+      <p class="form-control-static">{{team.contact.lastname}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-1 control-label">Tel. nr.</label>
+    <div class="col-md-5">
+      <p class="form-control-static">{{team.contact.phone}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-1 control-label">E-mail</label>
+    <div class="col-md-5">
+      <p class="form-control-static">{{team.contact.email}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-1 control-label">Adres</label>
+    <div class="col-md-5">
+      <p class="form-control-static">{{team.contact.street}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-1 control-label">Postcode</label>
+    <div class="col-md-5">
+      <p class="form-control-static">{{team.contact.postalcode}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-1 control-label">Woonplaats</label>
+    <div class="col-md-5">
+      <p class="form-control-static">{{team.contact.city}}</p>
+    </div>
+  </div>
+  <div class="form-group hightlight">
+    <div class="col-md-offset-1 col-md-5">
+      <button type="submit" class="btn btn-primary" ng-click="ok()">OK</button>
+      <!-- <button type="submit" class="btn btn-primary" ng-click="save(team)">Opslaan</button> -->
+      <!-- <button type="submit" class="btn btn-default" ng-click="cancel()">Annuleren</button> -->
+    </div>
+  </div>
+</form>

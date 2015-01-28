@@ -10,6 +10,9 @@ var afvolleyApp = angular.module("afvolleyApp", [
 afvolleyApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
+      when('/home', {
+        templateUrl: 'partials/home.html'
+      }).
       when('/teams', {
         templateUrl: 'partials/team-list.html',
         controller: 'TeamListCtrl'
@@ -23,6 +26,6 @@ afvolleyApp.config(['$routeProvider',
         controller: 'TeamSignupCtrl'
       }).
       otherwise({
-        redirectTo: '/teams'
+        redirectTo: '/home'
       });
   }]);

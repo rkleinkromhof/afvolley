@@ -1,12 +1,18 @@
 <!doctype html>
-<html ng-app="afvolleyApp">
+<html lang="en" ng-app="afvolleyApp">
   <head>
-    <title>Voetvolleybal VV Daarlerveen</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Aanmeldsysteem voor het jaarlijkse voetvolleybaltoernooi bij VV Daarlerveen">
+    <meta name="author" content="Robert Klein Kromhof">
+
+    <title>Voetvolleybal VV Daarlerveen</title>
+
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
     <link rel="stylesheet" href="css/app.css"/>
+
     <script src='bower_components/angular/angular.js'></script>
     <script src='bower_components/firebase/firebase.js'></script>
     <script src='bower_components/angularfire/dist/angularfire.js'></script>
@@ -15,9 +21,41 @@
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
   </head>
+
   <body>
-    <div class="view-container">
-      <div ng-view class="view-frame"></div>
-    </div>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/home">Voetvolleybal VV Daarlerveen</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="nav-home active"><a href="#/home">Startpagina</a></li>
+            <li class="nav-signup"><a href="#/aanmelden">Aanmelden</a></li>
+            <li class="nav-team-list"><a href="#/teams">Teams</a></li>
+            <!-- <li><a href="#contact">Contact</a></li> -->
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div lass="view-frame" ng-view></div>
+
+    </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>

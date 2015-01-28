@@ -1,38 +1,33 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2">
-      Search: <input type="search" class="form-control" ng-model="q" placeholder="filter teams..." autofocus>
-    </div>
+<div class="row">
+  <div class="col-md-2">
+    Search: <input type="search" class="form-control" ng-model="q" placeholder="filter teams..." autofocus>
   </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Team</th>
-        <th>Contactpersoon</th>
-        <th>Aangemeld</th>
-        <th>Spelers</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="(key, team) in teams | orderBy : signup : true | filter:q">
-        <td><a href="#/teams/{{key}}">{{team.name}}</a></td>
-        <td>{{team.contact.firstname}} {{team.contact.lastname}}</td>
-        <!-- TODO make column values clickable and switch between fixed and relative values? -->
-        <td>{{team.signup | date:'dd-MM-yyyy HH:mm:ss'}} ({{ team.signup | relativeDate }})</td>
-        <td>{{team.players.length}}</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr ng-if="results.length == 0">
-        <td colspan="4">
-          <strong>Geen resultaten gevonden...</strong>
-        </td>
-      </tr>
-      <tr ng-if="results.length > 0">
-        <td colspan="4">
-          <strong>{{results.length}} resultaten gevonden</strong>
-        </td>
-      </tr>
-    </tfoot>
-  </table>
 </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Contactpersoon</th>
+      <th>Aangemeld</th>
+      <th>Spelers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="(key, team) in results = (teams | orderBy : signup : true | filter:q)">
+      <td><a href="#/teams/{{key}}">{{team.name}}</a></td>
+      <td>{{team.contact.firstname}} {{team.contact.lastname}}</td>
+      <!-- TODO make column values clickable and switch between fixed and relative values? -->
+      <td>{{team.signup | date:'dd-MM-yyyy HH:mm:ss'}} ({{ team.signup | relativeDate }})</td>
+      <td>{{team.players.length}}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4" ng-if="q" ng-switch on="results.length">
+        <strong ng-switch-when="0">Geen resultaten gevonden</strong>
+        <strong ng-switch-when="1">1 resultaat gevonden</strong>
+        <strong ng-switch-default>{{results.length}} resultaten gevonden</strong>
+      </td>
+    </tr>
+  </tfoot>
+</table>
