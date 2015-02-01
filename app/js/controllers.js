@@ -6,8 +6,13 @@ afvolleyControllers.controller('TeamListCtrl', ['$scope', '$firebase',
   function($scope, $firebase) {
     var ref = new Firebase('https://afvolley.firebaseio.com/toernooien/2015/teams');
     var sync = $firebase(ref);
+    var teams = sync.$asArray();
 
-     $scope.teams = sync.$asArray();
+    $scope.teams = teams;
+
+    $scope.clear = function() {
+      $scope.filter = '';
+    }
   }
 ]);
 

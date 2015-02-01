@@ -1,8 +1,19 @@
 body {
-  padding-top: 50px;
+    padding-top: 50px;
 }
 
-.view-main {
-	padding: 40px 15px;
-	text-align: center;
+div.view-main {
+    padding: 30px 15px;
+}
+
+form.team-list-filter {
+    padding: 0 0 10px 0;
+}
+
+table.team-list-table tfoot button {
+    margin: 0 10px;
+}
+
+div.signup-header {
+	padding: 10px 0;
 }

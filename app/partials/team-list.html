@@ -1,32 +1,44 @@
-<div class="row">
-  <div class="col-md-2">
-    Search: <input type="search" class="form-control" ng-model="q" placeholder="filter teams..." autofocus>
+<form class="form-inline team-list-filter">
+  <div class="form-group has-feedback">
+    <label class="sr-only" for="filter">Filter teams</label>
+    <input type="text" class="form-control" id="filter" ng-model="filter" placeholder="Filter teams...">
   </div>
 </div>
-<table class="table">
+</form>
+<table class="table table-condensed table-hover team-list-table">
   <thead>
     <tr>
       <th>Team</th>
       <th>Contactpersoon</th>
-      <th>Aangemeld</th>
+      <th>
+        Aangemeld
+        <button type="button" class="btn btn-default btn-xs" ng-init="relativeDate = true" ng-click="relativeDate = !relativeDate">
+          <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+        </button>
+      </th>
       <th>Spelers</th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="(key, team) in results = (teams | orderBy : signup : true | filter:q)">
+    <tr ng-repeat="(key, team) in results = (teams | orderBy : 'signup' : true | filter:filter)">
       <td><a href="#/teams/{{key}}">{{team.name}}</a></td>
       <td>{{team.contact.firstname}} {{team.contact.lastname}}</td>
-      <!-- TODO make column values clickable and switch between fixed and relative values? -->
-      <td>{{team.signup | date:'dd-MM-yyyy HH:mm:ss'}} ({{ team.signup | relativeDate }})</td>
+      <td>
+        <span class="team-signup-relative" ng-show="relativeDate">{{team.signup | relativeDate}}</span>
+        <span class="team-signup-absolute" ng-hide="relativeDate">{{team.signup | date:'dd-MM-yyyy HH:mm'}}</span>
+      </td>
       <td>{{team.players.length}}</td>
     </tr>
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="4" ng-if="q" ng-switch on="results.length">
-        <strong ng-switch-when="0">Geen resultaten gevonden</strong>
-        <strong ng-switch-when="1">1 resultaat gevonden</strong>
-        <strong ng-switch-default>{{results.length}} resultaten gevonden</strong>
+      <td colspan="4" ng-if="filter">
+        <span ng-switch on="results.length">
+          <strong ng-switch-when="0">Geen resultaten gevonden</strong>
+          <strong ng-switch-when="1">1 resultaat gevonden</strong>
+          <strong ng-switch-default>{{results.length}} resultaten gevonden</strong>
+        </span>
+        <button type="button" class="btn btn-default btn-xs" ng-click="clear()">toon alles</button>
       </td>
     </tr>
   </tfoot>
