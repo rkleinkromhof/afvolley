@@ -21,7 +21,7 @@
   </thead>
   <tbody>
     <tr ng-repeat="(key, team) in results = (teams | orderBy : 'signup' : true | filter:filter)">
-      <td><a href="#/teams/{{key}}">{{team.name}}</a></td>
+      <td><!-- <a href="#/teams/{{key}}"> -->{{team.name}}<!-- </a> --></td>
       <td>{{team.contact.firstname}} {{team.contact.lastname}}</td>
       <td>
         <span class="team-signup-relative" ng-show="relativeDate">{{team.signup | relativeDate}}</span>
