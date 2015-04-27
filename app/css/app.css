@@ -2,18 +2,26 @@ body {
     padding-top: 50px;
 }
 
-div.view-main {
+.view-main {
     padding: 30px 15px;
 }
 
-form.team-list-filter {
+.team-list-filter {
     padding: 0 0 10px 0;
 }
 
-table.team-list-table tfoot button {
+.team-list-table tfoot button {
     margin: 0 10px;
 }
 
-div.signup-header {
+.signup-header {
 	padding: 10px 0;
+}
+
+.form-group .help-block {
+  display: none;
+}
+
+.form-group.has-error .help-block {
+  display: block;
 }

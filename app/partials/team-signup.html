@@ -6,13 +6,13 @@
 
 </div>
 
-<form id="signup-form" role="form" class="form-horizontal signup-form">
+<form name="signupform" role="form" class="form-horizontal signup-form">
 
   <div class="form-group" show-errors>
     <label for="teamname" class="col-md-1 control-label">Team</label>
 
     <div class="col-md-5">
-      <input type="text" class="form-control" name="teamname" ng-model="team.name" placeholder="Teamnaam" ng-required />
+      <input type="text" class="form-control" name="teamname" ng-model="team.name" placeholder="Teamnaam" required />
     </div>
   </div>
 
@@ -20,28 +20,17 @@
     <label class="col-md-1 control-label">Spelers</label>
   </div>
 
-  <!-- <div class="form-group" ng-repeat="player in team.players">
-    <label for="player-{{ $index }}-name" class="col-md-1 control-label">{{ $index < 3 ? "*" : ""}}{{ $index+1 }}</label>
-    <label class="sr-only" for="player-{{ $index }}-name">Naam</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" name="player-{{ $index }}-name" ng-model="player.name" placeholder="Naam" />
-    </div>
-    <label class="sr-only" for="player-{{ $index }}-city">Woonplaats</label>
-    <div class="col-md-2">
-      <input type="text" class="form-control" name="player-{{ $index }}-city" ng-model="player.city" placeholder="Woonplaats" />
-    </div>
-  </div> -->
   <div class="form-group" show-errors>
     <label for="player-0-name" class="col-md-1 control-label">*1</label>
 
     <label for="player-0-name" class="sr-only">Naam</label>
     <div class="col-md-3">
-      <input name="player-0-name" ng-model="players.0.name" type="text" class="form-control" placeholder="Naam" ng-required />
+      <input name="player-0-name" ng-model="players.0.name" type="text" class="form-control" placeholder="Naam" required />
     </div>
 
     <label for="player-0-city" class="sr-only">Woonplaats</label>
     <div class="col-md-2">
-      <input name="player-0-city" ng-model="players.0.city" type="text" class="form-control" placeholder="Woonplaats" ng-required />
+      <input name="player-0-city" ng-model="players.0.city" type="text" class="form-control" placeholder="Woonplaats" required />
     </div>
   </div>
 
@@ -50,12 +39,12 @@
 
     <label for="player-1-name" class="sr-only">Naam</label>
     <div class="col-md-3">
-      <input name="player-1-name" ng-model="players.1.name" type="text" class="form-control" placeholder="Naam" ng-required />
+      <input name="player-1-name" ng-model="players.1.name" type="text" class="form-control" placeholder="Naam" required />
     </div>
 
     <label for="player-1-city" class="sr-only">Woonplaats</label>
     <div class="col-md-2">
-      <input name="player-1-city" ng-model="players.1.city" type="text" class="form-control" placeholder="Woonplaats" ng-required />
+      <input name="player-1-city" ng-model="players.1.city" type="text" class="form-control" placeholder="Woonplaats" required />
     </div>
   </div>
 
@@ -64,12 +53,12 @@
 
     <label for="player-2-name" class="sr-only">Naam</label>
     <div class="col-md-3">
-      <input name="player-2-name" ng-model="players.2.name" type="text" class="form-control" placeholder="Naam" ng-required />
+      <input name="player-2-name" ng-model="players.2.name" type="text" class="form-control" placeholder="Naam" required />
     </div>
 
     <label for="player-2-city" class="sr-only">Woonplaats</label>
     <div class="col-md-2">
-      <input name="player-2-city" ng-model="players.2.city" type="text" class="form-control" placeholder="Woonplaats" ng-required />
+      <input name="player-2-city" ng-model="players.2.city" type="text" class="form-control" placeholder="Woonplaats" required />
     </div>
   </div>
 
@@ -122,49 +111,50 @@
   <div class="form-group" show-errors>
     <label for="contact-firstname" class="col-md-1 control-label">Voornaam</label>
     <div class="col-md-5">
-      <input type="text" class="form-control" name="contact-firstname" ng-model="team.contact.firstname" placeholder="Voornaam" ng-required />
+      <input type="text" class="form-control" name="contact-firstname" ng-model="team.contact.firstname" placeholder="Voornaam" required />
     </div>
   </div>
 
   <div class="form-group" show-errors>
     <label for="contact-lastname" class="col-md-1 control-label">Achternaam</label>
     <div class="col-md-5">
-      <input type="text" class="form-control" name="contact-lastname" ng-model="team.contact.lastname" placeholder="Achternaam" ng-required />
+      <input type="text" class="form-control" name="contact-lastname" ng-model="team.contact.lastname" placeholder="Achternaam" required />
     </div>
   </div>
 
   <div class="form-group" show-errors>
     <label for="contact-phone" class="col-md-1 control-label">Tel. nr.</label>
     <div class="col-md-5">
-      <input type="tel" class="form-control" name="contact-phone" ng-model="team.contact.phone" placeholder="Telefoonnummer" ng-required />
+      <input type="tel" class="form-control" name="contact-phone" ng-model="team.contact.phone" placeholder="Telefoonnummer" required />
     </div>
   </div>
 
   <div class="form-group" show-errors>
     <label for="contact-email" class="col-md-1 control-label">E-mail</label>
     <div class="col-md-5">
-      <input type="email" class="form-control" name="contact-email" ng-model="team.contact.email" placeholder="E-mail" ng-required />
+      <input type="email" class="form-control" name="contact-email" ng-model="team.contact.email" placeholder="E-mail" required />
+      <p class="help-block" ng-if="'signupform.contact-email.$error.email'">Dit is geen geldig e-mailadres</p>
     </div>
   </div>
 
   <div class="form-group" show-errors>
     <label for="contact-street" class="col-md-1 control-label">Adres</label>
     <div class="col-md-5">
-      <input type="text" class="form-control" name="contact-street" ng-model="team.contact.street" placeholder="Adres" ng-required />
+      <input type="text" class="form-control" name="contact-street" ng-model="team.contact.street" placeholder="Adres" required />
     </div>
   </div>
 
   <div class="form-group" show-errors>
     <label for="contact-postalcode" class="col-md-1 control-label">Postcode</label>
     <div class="col-md-5">
-      <input type="text" class="form-control" name="contact-postalcode" ng-model="team.contact.postalcode" placeholder="Postcode" ng-required />
+      <input type="text" class="form-control" name="contact-postalcode" ng-model="team.contact.postalcode" placeholder="Postcode" required />
     </div>
   </div>
 
   <div class="form-group" show-errors>
     <label for="contact-city" class="col-md-1 control-label">Woonplaats</label>
     <div class="col-md-5">
-      <input type="text" class="form-control" name="contact-city" ng-model="team.contact.city" placeholder="Woonplaats" ng-required />
+      <input type="text" class="form-control" name="contact-city" ng-model="team.contact.city" placeholder="Woonplaats" required />
     </div>
   </div>
 
@@ -172,7 +162,7 @@
     <div class="col-md-offset-1 col-md-5">
       <div class="checkbox">
         <label>
-          <input type="checkbox" ng-required />
+          <input type="checkbox" required />
           Ik geef hierbij aan dat ik 18 jaar of ouder ben, en alle opgegeven speler 16 jaar of ouder zijn.
         </label>
       </div>
@@ -183,7 +173,7 @@
     <div class="col-md-offset-1 col-md-5">
       <div class="checkbox">
         <label>
-          <input type="checkbox" ng-required />
+          <input type="checkbox" required />
           Ik ga akkoord met de voorwaarden en het regelement zoals beschreven in de inschrijfprocedure.
         </label>
         <p class="help-block">Het reglement is <a href="http://voetvolley.net/docs/Reglement%20Voetvolleybaltoernooi.pdf" target="_blank">hier</a> te lezen. (opent in een nieuw venster)</p>
@@ -194,7 +184,7 @@
   <div class="form-group">
     <div class="col-md-offset-1 col-md-5">
       <button type="submit" class="btn btn-primary" ng-click="signup(team)">Aanmelden</button>
-      <button type="reset" class="btn btn-default">Maak leeg</button>
+      <button type="reset" class="btn btn-default" ng-click="reset()">Maak leeg</button>
     </div>
   </div>
 

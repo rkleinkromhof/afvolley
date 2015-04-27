@@ -1,6 +1,16 @@
 'use strict';
 
-var afvolleyControllers = angular.module('afvolleyControllers', []);
+var afvolleyControllers = angular.module('afvolleyControllers', ['ngRoute']);
+
+afvolleyControllers.controller('NavController', ['$scope', '$location',
+  function($scope, $location) {
+    $scope.nav = {
+      isLocation: function isMenuLocation(loc) {
+        return $location.path() === ('/' + loc);
+      }
+    };
+  }
+]);
 
 afvolleyControllers.controller('TeamListCtrl', ['$scope', '$firebase', 
   function($scope, $firebase) {
@@ -20,7 +30,7 @@ afvolleyControllers.controller('TeamSignupCtrl', ['$scope', '$firebase',
   function($scope, $firebase) {
     var fbase = new Firebase('https://afvolley.firebaseio.com/toernooien/2015/teams');
     var teams = $scope.teams = $firebase(fbase);
-    var team = $scope.team = {
+    var newTeam = {
       contact: {},
       players: {
         0: {},
@@ -30,7 +40,8 @@ afvolleyControllers.controller('TeamSignupCtrl', ['$scope', '$firebase',
         4: {},
         5: {}
       }
-    }
+    };
+    var team = $scope.team = angular.copy(newTeam);
 
     $scope.signup = function(team) {
       if (team.name) {
@@ -42,6 +53,11 @@ afvolleyControllers.controller('TeamSignupCtrl', ['$scope', '$firebase',
           console.log("Error: ", error);
         });
       }
+    };
+
+    $scope.reset = function() {
+      team = $scope.team = angular.copy(newTeam);
+      $scope.$broadcast('show-errors-reset');
     };
   }
 ]);
